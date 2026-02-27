@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat Service - 会員限定サイト</title>
+    <title>AI Chat Service - 会員限定サイト(Demo)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,6 +27,9 @@
     <section id="login-page">
         <div class="form-container">
             <h2>ログイン</h2>
+            <p style="font-size: 0.8rem; color: #666; margin-bottom: 20px;">
+                デモ用：test@example.com / password123
+            </p>
             <form id="login-form">
                 <input type="email" id="email" placeholder="メールアドレス" required>
                 <input type="password" id="password" placeholder="パスワード" required>
@@ -37,13 +40,25 @@
     </section>
 
     <section id="chat-page">
-        <div class="chat-header">
-            <h2>会員専用チャットルーム</h2>
-            <button onclick="location.reload()" class="btn-logout">ログアウト</button>
-        </div>
-        <div class="chat-area">
-            <div class="dummy-bot">
-                <p>🤖 ここにチャットボットが表示されます</p>
+        <div class="chat-container">
+            <div class="chat-inner-header">
+                <h3>会員専用チャットルーム</h3>
+                <button onclick="location.reload()" class="btn-logout-mini">ログアウト</button>
+            </div>
+            
+            <div class="chat-window" id="chat-window">
+                <div class="message bot">
+                    <div class="icon">🤖</div>
+                    <div class="message-text">こんにちは！会員限定デモ画面へようこそ。ここに実際のチャットボットが埋め込まれるイメージです。</div>
+                </div>
+                <div class="message user">
+                    <div class="message-text">ログインに成功しました！</div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" placeholder="メッセージを入力..." disabled>
+                <button class="btn-send">送信</button>
             </div>
         </div>
     </section>
