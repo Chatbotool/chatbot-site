@@ -1,4 +1,6 @@
-/* 基本設定 */
+/* =========================================
+   1. 基本設定
+   ========================================= */
 body { 
     font-family: 'Helvetica Neue', Arial, sans-serif; 
     margin: 0; 
@@ -8,7 +10,7 @@ body {
 
 section { 
     display: none; 
-    padding: 50px 20px; 
+    padding: 50px 0; /* 上下の余白 */
     text-align: center; 
 }
 
@@ -16,7 +18,9 @@ section.active {
     display: block; 
 }
 
-/* ヘッダー */
+/* =========================================
+   2. ヘッダー・共通ボタン
+   ========================================= */
 header { 
     display: flex; 
     justify-content: space-between; 
@@ -32,13 +36,12 @@ header {
     color: #007bff; 
 }
 
-/* ボタン類 */
 button { 
     cursor: pointer; 
     border: none; 
     border-radius: 5px; 
     padding: 10px 20px; 
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, background 0.3s;
 }
 
 button:hover {
@@ -57,7 +60,101 @@ button:hover {
     font-size: 1.1rem; 
 }
 
-/* フォーム */
+/* =========================================
+   3. ヒーローセクション (画像背景＋文字重ね)
+   ========================================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 350px; /* 縦幅をコンパクトに固定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #000; /* 画像を薄くしたときの下地 */
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 比率を保ってエリアを埋める */
+    opacity: 0.4;      /* 画像を背景として薄くする */
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;         /* 画像より上に配置 */
+    color: #fff;        /* 重ねる文字は白 */
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* 文字を読みやすくする影 */
+}
+
+.hero-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* =========================================
+   4. 機能紹介 (メリット) カード
+   ========================================= */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px); /* ホバー時に少し浮くアニメーション */
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* =========================================
+   5. ログインフォーム
+   ========================================= */
 .form-container { 
     max-width: 400px; 
     margin: 40px auto; 
@@ -77,8 +174,9 @@ input {
     box-sizing: border-box; 
 }
 
-/* --- チャットエリア（リッチ版） --- */
-
+/* =========================================
+   6. 会員限定チャット画面
+   ========================================= */
 .chat-container {
     max-width: 600px;
     margin: 0 auto;
@@ -86,7 +184,7 @@ input {
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     overflow: hidden;
-    text-align: left; /* 文字は左寄せ */
+    text-align: left;
 }
 
 .chat-inner-header {
@@ -98,14 +196,9 @@ input {
     align-items: center;
 }
 
-.chat-inner-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
 .chat-window {
     height: 400px;
-    background: #e5ddd5; /* チャットっぽい背景色 */
+    background: #e5ddd5;
     padding: 20px;
     overflow-y: auto;
     display: flex;
@@ -113,7 +206,6 @@ input {
     gap: 15px;
 }
 
-/* 吹き出しのデザイン */
 .message {
     display: flex;
     align-items: flex-start;
@@ -121,7 +213,7 @@ input {
 }
 
 .message.user {
-    flex-direction: row-reverse; /* ユーザーは右側に表示 */
+    flex-direction: row-reverse;
 }
 
 .message-text {
@@ -136,20 +228,13 @@ input {
 .bot .message-text {
     background: white;
     color: #333;
-    border-top-left-radius: 0;
 }
 
 .user .message-text {
-    background: #dcf8c6; /* LINEのような緑色 */
+    background: #dcf8c6;
     color: #333;
-    border-top-right-radius: 0;
 }
 
-.icon {
-    font-size: 1.2rem;
-}
-
-/* 入力欄（デモ用なので無効化状態） */
 .chat-input-area {
     padding: 15px;
     display: flex;
@@ -158,17 +243,12 @@ input {
     border-top: 1px solid #ddd;
 }
 
-.chat-input-area input {
-    margin-bottom: 0; /* フォーム用スタイルの余白を消す */
-}
-
 .btn-send {
     background: #007bff;
     color: white;
-    border-radius: 50%; /* 丸い送信ボタン */
+    border-radius: 50%;
     width: 45px;
     height: 45px;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,58 +260,4 @@ input {
     border: 1px solid white;
     padding: 5px 10px;
     font-size: 0.8rem;
-}
-
-/* 写真のスタイル */
-.hero-image-container {
-    margin-bottom: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-/* 機能紹介カードのスタイル */
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 60px;
-    flex-wrap: wrap;
-}
-
-.feature-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    width: 280px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.feature-card h3 {
-    margin-bottom: 15px;
-    color: #007bff;
-}
-
-.feature-card p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.6;
 }
