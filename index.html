@@ -18,9 +18,31 @@
 
     <section id="top-page" class="active">
         <div class="hero">
+            <div class="hero-image-container">
+                <img src="https://via.placeholder.com/800x400?text=AI+Chat+Service+Image" alt="AI Chat Image" class="hero-img">
+            </div>
+            
             <h1>あなたのビジネスを加速させるAIチャット</h1>
             <p>会員登録することで、最新のAIボットを24時間いつでも利用可能です。</p>
             <button class="btn-main" onclick="showSection('login-page')">今すぐ始める</button>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>24時間即時回答</h3>
+                <p>深夜でも休日でも、あなたの質問にAIがすぐにお答えします。待たされるストレスはもうありません。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>専門知識の提供</h3>
+                <p>膨大なデータから必要な情報を瞬時に検索。専属コンシェルジュのような体験を提供します。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>高度な分析</h3>
+                <p>会員限定で、過去の相談履歴に基づいた、よりパーソナライズされたアドバイスが可能です。</p>
+            </div>
         </div>
     </section>
 
@@ -45,7 +67,6 @@
                 <h3>会員専用チャットルーム</h3>
                 <button onclick="location.reload()" class="btn-logout-mini">ログアウト</button>
             </div>
-            
             <div class="chat-window" id="chat-window">
                 <div class="message bot">
                     <div class="icon">🤖</div>
@@ -55,7 +76,6 @@
                     <div class="message-text">ログインに成功しました！</div>
                 </div>
             </div>
-
             <div class="chat-input-area">
                 <input type="text" placeholder="メッセージを入力..." disabled>
                 <button class="btn-send">送信</button>
