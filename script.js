@@ -1,7 +1,7 @@
 // 1. プロトタイプ用の固定ログイン情報（誰に見られても良いデモ用）
 const DUMMY_USER = {
     email: "test@example.com",
-    password: "password123"
+    password: "secure-demo-2026-XyZ"
 };
 
 /**
