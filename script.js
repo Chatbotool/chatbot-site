@@ -19,3 +19,22 @@ function handleLogin() {
         alert("メールアドレスとパスワードを入力してください");
     }
 }
+// プロトタイプ用の固定ログイン情報
+const DUMMY_USER = {
+    email: "test@example.com",
+    password: "password123"
+};
+
+function handleLogin() {
+    const emailInput = document.getElementById('email').value;
+    const passInput = document.getElementById('password').value;
+
+    // 入力値のチェック
+    if (emailInput === DUMMY_USER.email && passInput === DUMMY_USER.password) {
+        alert("ログイン成功！会員専用ページへ移動します。");
+        showSection('chat-page');
+        document.getElementById('guest-nav').style.display = 'none';
+    } else {
+        alert("エラー：メールアドレスまたはパスワードが違います。\n(Hint: test@example.com / password123)");
+    }
+}
