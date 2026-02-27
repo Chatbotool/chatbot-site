@@ -1,20 +1,183 @@
 /* 基本設定 */
-body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; }
-section { display: none; padding: 50px 20px; text-align: center; }
-section.active { display: block; }
+body { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    margin: 0; 
+    color: #333; 
+    background-color: #f8f9fa; /* 全体の背景を少しグレーにして白を際立たせる */
+}
+
+section { 
+    display: none; 
+    padding: 50px 20px; 
+    text-align: center; 
+}
+
+section.active { 
+    display: block; 
+}
 
 /* ヘッダー */
-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #fff; border-bottom: 1px solid #eee; }
-.logo { font-weight: bold; font-size: 1.5rem; color: #007bff; }
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 5%; 
+    background: #fff; 
+    border-bottom: 1px solid #eee; 
+}
+
+.logo { 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    color: #007bff; 
+}
 
 /* ボタン類 */
-button { cursor: pointer; border: none; border-radius: 5px; padding: 10px 20px; }
-.btn-login { background: transparent; color: #007bff; border: 1px solid #007bff; }
-.btn-main, .btn-submit { background: #007bff; color: white; font-size: 1.1rem; }
+button { 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.btn-login { 
+    background: transparent; 
+    color: #007bff; 
+    border: 1px solid #007bff; 
+}
+
+.btn-main, .btn-submit { 
+    background: #007bff; 
+    color: white; 
+    font-size: 1.1rem; 
+}
 
 /* フォーム */
-.form-container { max-width: 400px; margin: 0 auto; border: 1px solid #ddd; padding: 40px; border-radius: 10px; }
-input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+.form-container { 
+    max-width: 400px; 
+    margin: 40px auto; 
+    background: #fff;
+    border: 1px solid #ddd; 
+    padding: 40px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
 
-/* チャットエリア（仮） */
-.dummy-bot { width: 100%; height: 400px; background: #f9f9f9; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; }
+input { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+
+/* --- チャットエリア（リッチ版） --- */
+
+.chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: left; /* 文字は左寄せ */
+}
+
+.chat-inner-header {
+    background: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-inner-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.chat-window {
+    height: 400px;
+    background: #e5ddd5; /* チャットっぽい背景色 */
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 吹き出しのデザイン */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.message.user {
+    flex-direction: row-reverse; /* ユーザーは右側に表示 */
+}
+
+.message-text {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 75%;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.bot .message-text {
+    background: white;
+    color: #333;
+    border-top-left-radius: 0;
+}
+
+.user .message-text {
+    background: #dcf8c6; /* LINEのような緑色 */
+    color: #333;
+    border-top-right-radius: 0;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+/* 入力欄（デモ用なので無効化状態） */
+.chat-input-area {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+    background: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input-area input {
+    margin-bottom: 0; /* フォーム用スタイルの余白を消す */
+}
+
+.btn-send {
+    background: #007bff;
+    color: white;
+    border-radius: 50%; /* 丸い送信ボタン */
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-logout-mini {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
