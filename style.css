@@ -344,3 +344,32 @@ body:has(#top-page.active) #breadcrumb-container {
 .form-container, .signup-form-container {
     margin-top: 40px !important;
 }
+
+/* =========================================
+   9. 新規登録ページ：メッセージエリア
+   ========================================= */
+
+/* メッセージ全体の枠組み */
+.signup-notice {
+    text-align: left;
+    background-color: #fff9f9; /* 非常に薄い赤背景 */
+    padding: 20px;
+    border: 1px solid #ffeded;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.signup-notice p {
+    margin: 0 0 15px 0;
+    color: #555;
+}
+
+/* 「ご注意！」以降の赤文字設定 */
+.warning-text {
+    color: #e74c3c !important; /* 強調の赤 */
+    font-weight: bold;
+    display: block; /* 改行させて目立たせる */
+    margin-bottom: 0 !important;
+}
