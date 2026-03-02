@@ -266,3 +266,38 @@ select {
         font-size: 1.6rem;
     }
 }
+
+/* =========================================
+   7. ページごとのヘッダー表示制御
+   ========================================= */
+
+/* ログイン・新規登録・チャット画面では、スクロール前でもヘッダーを白背景にする */
+body:has(#login-page.active) header,
+body:has(#signup-page.active) header,
+body:has(#chat-page.active) header {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 5%; /* scrolledと同じパディング */
+}
+
+/* それらのページでの文字色を黒に強制 */
+body:has(#login-page.active) header .logo,
+body:has(#signup-page.active) header .logo,
+body:has(#chat-page.active) header .logo,
+body:has(#login-page.active) header .nav-item,
+body:has(#signup-page.active) header .nav-item,
+body:has(#chat-page.active) header .nav-item {
+    color: #333;
+}
+
+/* ログイン・新規登録ボタンの色調整 */
+body:has(#login-page.active) header .btn-login,
+body:has(#signup-page.active) header .btn-login {
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+body:has(#login-page.active) header .btn-signup,
+body:has(#signup-page.active) header .btn-signup {
+    background: #007bff;
+    color: #fff;
+}
