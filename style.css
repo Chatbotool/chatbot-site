@@ -268,7 +268,7 @@ select {
 }
 
 /* =========================================
-   7. ページごとのヘッダー表示制御
+   8. ページごとのヘッダー表示制御
    ========================================= */
 
 /* ログイン・新規登録・チャット画面では、スクロール前でもヘッダーを白背景にする */
@@ -300,4 +300,35 @@ body:has(#login-page.active) header .btn-signup,
 body:has(#signup-page.active) header .btn-signup {
     background: #007bff;
     color: #fff;
+}
+
+
+/* =========================================
+   7. パンくずリスト
+   ========================================= */
+.breadcrumb-nav {
+    padding: 12px 5%;
+    background: #f8f9fa; /* 非常に薄いグレー */
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 60px; /* 固定ヘッダー分の余白 */
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+#breadcrumb-list span {
+    margin: 0 10px;
+    color: #ccc;
+    font-weight: normal;
+}
+
+/* トップページ（ヒーロー画像があるページ）ではパンくずを隠す */
+#top-page.active ~ #breadcrumb-container,
+body:has(#top-page.active) #breadcrumb-container {
+    display: none;
+}
+
+/* フォームの上の余白を少し調整（パンくずが出た分） */
+.form-container, .signup-form-container {
+    margin-top: 40px !important;
 }
