@@ -1,5 +1,5 @@
 /* =========================================
-   1. 基本設定
+   基本設定
    ========================================= */
 body { 
     font-family: 'Helvetica Neue', Arial, sans-serif; 
@@ -8,53 +8,41 @@ body {
     background-color: #f8f9fa;
 }
 
-section { 
-    display: none; 
-    padding: 50px 0; 
-    text-align: center; 
-}
-
-section.active { 
-    display: block; 
-}
+section { display: none; text-align: center; }
+section.active { display: block; }
 
 /* =========================================
-   2. ヘッダー (固定 & スクロール検知)
+   ヘッダー（常に画面上部に固定）
    ========================================= */
 header { 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     padding: 20px 5%; 
-    background: transparent; /* 初期は透明 */
-    position: fixed;        /* 画面上部に固定 */
+    background: transparent;
+    position: fixed;        /* ★画面に固定 */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;          /* ★最前面に持ってくる */
     box-sizing: border-box;
-    transition: all 0.4s ease; /* アニメーション用 */
+    transition: all 0.4s ease;
 }
 
-/* スクロール後にJavaScriptで付与するクラス */
 header.scrolled {
-    background: #fff;       /* 背景を白に */
-    padding: 10px 5%;       /* 少し細くして洗練させる */
+    background: #fff;
+    padding: 10px 5%;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo { 
     font-weight: bold; 
     font-size: 1.5rem; 
-    color: #fff;            /* 初期は白文字 */
+    color: #fff; 
     transition: color 0.4s;
 }
+header.scrolled .logo { color: #333; }
 
-header.scrolled .logo {
-    color: #333;            /* スクロール後は黒/濃い灰色 */
-}
-
-/* ナビゲーションアイテム */
 .nav-item {
     text-decoration: none;
     color: #fff;
@@ -63,45 +51,26 @@ header.scrolled .logo {
     font-weight: bold;
     transition: color 0.4s;
 }
-
-header.scrolled .nav-item {
-    color: #333;
-}
-
-/* ボタン共通設定 */
-button { 
-    cursor: pointer; 
-    border: none; 
-    border-radius: 5px; 
-    padding: 10px 20px; 
-    transition: all 0.3s;
-}
+header.scrolled .nav-item { color: #333; }
 
 .btn-login { 
     background: transparent; 
-    color: #fff;            /* 初期は白文字 */
+    color: #fff; 
     border: 1px solid #fff; 
 }
-
 header.scrolled .btn-login {
     color: #007bff;
     border: 1px solid #007bff;
 }
 
-.btn-main, .btn-submit { 
-    background: #007bff; 
-    color: white; 
-    font-size: 1.1rem; 
-}
-
 /* =========================================
-   3. ヒーローセクション
+   ヒーローセクション（画像位置の修正）
    ========================================= */
-/* ヘッダーがfixedなので、一番上の要素（hero）が画面上端から始まるようにします */
 .hero {
     position: relative;
     width: 100%;
-    height: 450px; /* ヘッダーが重なる分、少し高さを出すと綺麗です */
+    height: 100vh; /* ★画面いっぱいの高さにする（または500px等に固定） */
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,6 +91,7 @@ header.scrolled .btn-login {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center; /* ★画像の中央を表示（下すぎる場合はここを top に変更） */
     opacity: 0.5;
 }
 
@@ -131,9 +101,10 @@ header.scrolled .btn-login {
     color: #fff;
     text-align: center;
     padding: 0 20px;
-    margin-top: 40px; /* ヘッダーとの重なりを考慮した余白 */
+    /* ヘッダーに被らないように調整 */
+    margin-top: 0; 
 }
 
-/* =========================================
-   (以下、4.機能紹介 / 5.フォーム / 6.チャット は既存のまま)
-   ========================================= */
+/* メリット紹介などは既存のままでOK */
+.features { padding: 80px 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.feature-card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 280px; }
