@@ -8,13 +8,8 @@ body {
     background-color: #fff;
 }
 
-/* セクション切り替え用の基本設定 */
-section { 
-    display: none; 
-}
-section.active { 
-    display: block; 
-}
+section { display: none; }
+section.active { display: block; }
 
 /* =========================================
    2. ヘッダー (常に最前面で固定)
@@ -61,10 +56,8 @@ header.scrolled .logo { color: #333; }
 header.scrolled .nav-item { color: #333; }
 
 button { cursor: pointer; border: none; border-radius: 5px; padding: 8px 15px; transition: 0.3s; }
-
 .btn-login { background: transparent; color: #fff; border: 1px solid #fff; margin-left: 10px; }
 header.scrolled .btn-login { color: #007bff; border: 1px solid #007bff; }
-
 .btn-signup { background: #fff; color: #333; margin-left: 10px; }
 header.scrolled .btn-signup { background: #007bff; color: #fff; }
 
@@ -97,12 +90,12 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
 .btn-main { background: #007bff; color: white; font-size: 1.2rem; padding: 15px 40px; }
 
 /* =========================================
-   4. サービス概要セクション (Positioning)
+   4. サービス概要 (左寄せ・幅制限)
    ========================================= */
 .description-section {
     padding: 100px 20px;
     background-color: #fff;
-    text-align: center;
+    text-align: center; /* タイトルは中央 */
 }
 
 .description-section .container {
@@ -117,7 +110,6 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     display: block;
     margin-bottom: 20px;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
 }
 
 .main-title {
@@ -125,13 +117,21 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     color: #333;
     margin-bottom: 45px;
     font-weight: bold;
-    line-height: 1.4;
+}
+
+/* 文章の左寄せ・読みやすさ対策 */
+.description-text {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: left; /* ★ここを左寄せに */
 }
 
 .description-text p {
-    font-size: 1.15rem;
-    line-height: 2.0;
+    font-size: 1.1rem;
+    line-height: 2.2; /* 行間を広く */
     color: #444;
+    margin-bottom: 25px;
+    text-align: justify; /* 日本語の端を揃える */
 }
 
 /* =========================================
@@ -155,6 +155,9 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     text-align: center;
 }
 
-/* ログインフォーム・チャット等は以前のスタイルを維持 */
-.form-container { max-width: 400px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-.chat-container { max-width: 600px; margin: 0 auto; background: #fff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; }
+/* ログイン・チャット */
+.form-container { max-width: 400px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; }
+.chat-container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; text-align: left;}
+.chat-inner-header { background: #007bff; color: white; padding: 15px; display: flex; justify-content: space-between; }
+.chat-window { height: 400px; background: #f0f0f0; padding: 20px; overflow-y: auto; }
+.message-text { background: white; padding: 10px; border-radius: 10px; display: inline-block; }
