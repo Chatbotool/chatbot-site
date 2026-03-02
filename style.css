@@ -373,3 +373,106 @@ body:has(#top-page.active) #breadcrumb-container {
     display: block; /* 改行させて目立たせる */
     margin-bottom: 0 !important;
 }
+
+/* =========================================
+   10. コンテンツ・カード（サービス概要・支援ポイント用）
+   ========================================= */
+
+/* セクション全体の背景を薄いグレーに設定 */
+.description-section, .support-section {
+    padding: 80px 20px;
+    background-color: #f5f7f9; /* 参考画像に近いグレー */
+}
+
+/* 白いカード（情報の塊）のデザイン */
+.category-card {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 16px;
+    max-width: 900px;
+    margin: 0 auto 40px; /* カード同士の縦の間隔 */
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05); /* 柔らかい影 */
+    text-align: center;
+}
+
+/* カード内のメインタイトル（下に青い線） */
+.category-card .main-title {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.category-card .main-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #007bff; /* 青いアクセント線 */
+}
+
+/* 箇条書き（支援ポイント）の装飾 */
+.support-text ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.support-text ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 18px;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+/* リストの先頭にチェックマークを付与 */
+.support-text ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   11. フォーム内のカテゴリー分割（新規登録用）
+   ========================================= */
+
+/* 登録フォーム内の各グループも白枠カードにする */
+.signup-form-container .category-card {
+    text-align: left;
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+    box-shadow: none; /* フォーム内は影を抑える */
+}
+
+.signup-form-container h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .category-card {
+        padding: 30px 20px;
+    }
+    
+    .category-card .main-title {
+        font-size: 1.5rem;
+    }
+}
