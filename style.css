@@ -322,6 +322,18 @@ body:has(#signup-page.active) header .btn-signup {
     font-weight: normal;
 }
 
+/* --- パンくずリスト内のリンク用スタイル --- */
+.breadcrumb-link {
+    text-decoration: none; /* 下線を消す */
+    color: #888;          /* 周りの文字と同じ色にする */
+    transition: color 0.3s;
+}
+
+.breadcrumb-link:hover {
+    color: #007bff;       /* マウスを置いたときだけブランドカラーにする */
+    text-decoration: underline; /* マウスを置いたときだけ下線を出す */
+}
+
 /* トップページ（ヒーロー画像があるページ）ではパンくずを隠す */
 #top-page.active ~ #breadcrumb-container,
 body:has(#top-page.active) #breadcrumb-container {
