@@ -26,6 +26,21 @@ function showSection(sectionId) {
         targetSection.classList.add('active');
     }
 
+    // --- 【追加】パンくずリストの更新処理 ---
+    const breadcrumb = document.getElementById('breadcrumb-list');
+    if (breadcrumb) {
+        let pageName = "";
+        // セクションIDに応じて表示名を変える
+        if (sectionId === 'login-page') pageName = "ログイン";
+        else if (sectionId === 'signup-page') pageName = "新規会員登録";
+        else if (sectionId === 'chat-page') pageName = "AIチャットルーム";
+        
+        // ページ名がある場合のみ、パンくずの中身を「TOP > ページ名」に書き換える
+        if (pageName) {
+            breadcrumb.innerHTML = `TOP <span>&gt;</span> ${pageName}`;
+        }
+    }
+
     // ヘッダーのスタイルを即座に更新
     updateHeader();
     
@@ -60,7 +75,7 @@ function handleSignup() {
 }
 
 /* =========================================
-   3. UI・スクロール制御（★ここを修正）
+   3. UI・スクロール制御
    ========================================= */
 
 // ヘッダーの状態を一括管理する関数
