@@ -44,14 +44,15 @@ function handleLogin() {
    【追加機能】スクロール検知：ヘッダー背景色の変更
    ========================================= */
 window.addEventListener('scroll', function() {
-    // HTML内の header 要素を取得（id="main-header" を付けている場合）
+    // 確実に要素を取得するために、IDとタグの両方で探します
     const header = document.getElementById('main-header') || document.querySelector('header');
     
-    if (window.scrollY > 50) { 
-        // 50px以上スクロールしたら 'scrolled' クラスを追加
-        header.classList.add('scrolled');
-    } else {
-        // 50px未満（一番上）なら 'scrolled' クラスを削除
-        header.classList.remove('scrolled');
+    // headerが存在する場合のみ処理を実行（これでエラーが消えます）
+    if (header) {
+        if (window.scrollY > 50) { 
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     }
 });
