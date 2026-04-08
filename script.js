@@ -6,52 +6,45 @@ const DUMMY_USER = {
     password: "secure-demo-2026-XyZ"
 };
 
-// 現在どのセクションにいるかを保持する変数
 let currentSectionId = 'top-page';
 
-/**
- * 表示するセクションを切り替える関数
- */
+/* =========================================
+   2. 画面切り替えとパンくず機能
+   ========================================= */
 function showSection(sectionId) {
-    currentSectionId = sectionId; // 現在のセクションを更新
+    currentSectionId = sectionId; 
 
-    // 全てのセクションから active クラスを削除して非表示にする
+    // 全セクションを非表示
     document.querySelectorAll('section').forEach(section => {
         section.classList.remove('active');
     });
     
-    // 指定したIDのセクションを表示する
+    // 対象セクションを表示
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
     }
 
-    // --- 【追加】パンくずリストの更新処理 ---
+    // パンくずリストの更新
     const breadcrumb = document.getElementById('breadcrumb-list');
     if (breadcrumb) {
         let pageName = "";
-        // セクションIDに応じて表示名を変える
         if (sectionId === 'login-page') pageName = "ログイン";
         else if (sectionId === 'signup-page') pageName = "新規会員登録";
         else if (sectionId === 'chat-page') pageName = "AIチャットルーム";
         
-        // ページ名がある場合のみ、パンくずの中身を「TOP > ページ名」に書き換える
         if (pageName) {
             breadcrumb.innerHTML = `<a href="#" onclick="showSection('top-page'); return false;" class="breadcrumb-link">TOP</a> <span>&gt;</span> ${pageName}`;
         }
     }
 
-    // ヘッダーのスタイルを即座に更新
     updateHeader();
-    
-    // 常にページ最上部へスクロール
     window.scrollTo(0, 0);
 }
 
 /* =========================================
-   2. 認証関連のイベント
+   3. 認証関連のイベント
    ========================================= */
-
 function handleLogin() {
     const emailInput = document.getElementById('email').value;
     const passInput = document.getElementById('password').value;
@@ -75,22 +68,36 @@ function handleSignup() {
 }
 
 /* =========================================
-   3. UI・スクロール制御
+   4. ヘッダースクロール制御
    ========================================= */
-
-// ヘッダーの状態を一括管理する関数
 function updateHeader() {
     const header = document.getElementById('main-header') || document.querySelector('header');
     if (!header) return;
 
-    // トップページ以外、または、トップページで50px以上スクロールしている場合
     if (currentSectionId !== 'top-page' || window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
-        // トップページかつ、一番上にいる場合のみ背景を消す
         header.classList.remove('scrolled');
     }
 }
 
-// スクロールするたびに実行
 window.addEventListener('scroll', updateHeader);
+
+/* =========================================
+   5. ご利用の流れタブ切り替え
+   ========================================= */
+function switchFlow(element, type) {
+    // 全タブの非アクティブ化
+    document.querySelectorAll('.flow-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    // クリックされたタブをアクティブ化
+    element.classList.add('active');
+
+    // 全フローコンテンツの非アクティブ化
+    document.querySelectorAll('.flow-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    // 対象のフローコンテンツをアクティブ化
+    document.getElementById('flow-' + type).classList.add('active');
+}
