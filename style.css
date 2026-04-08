@@ -1,26 +1,31 @@
 /* =========================================
    1. 基本設定
    ========================================= */
-body { 
-    font-family: 'Helvetica Neue', Arial, sans-serif; 
-    margin: 0; 
-    color: #333; 
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    color: #333;
     background-color: #fff;
 }
 
-section { display: none; }
-section.active { display: block; }
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
 
 /* =========================================
-   2. ヘッダー (常に最前面で固定)
+   2. ヘッダー
    ========================================= */
-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px 5%; 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
     background: transparent;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -32,17 +37,19 @@ header {
 header.scrolled {
     background: rgba(255, 255, 255, 0.98);
     padding: 10px 5%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.logo { 
-    font-weight: bold; 
-    font-size: 1.5rem; 
-    color: #fff; 
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
     transition: color 0.4s;
 }
 
-header.scrolled .logo { color: #333; }
+header.scrolled .logo {
+    color: #333;
+}
 
 .nav-item {
     text-decoration: none;
@@ -53,16 +60,78 @@ header.scrolled .logo { color: #333; }
     transition: color 0.4s;
 }
 
-header.scrolled .nav-item { color: #333; }
+header.scrolled .nav-item {
+    color: #333;
+}
 
-button { cursor: pointer; border: none; border-radius: 5px; padding: 8px 15px; transition: 0.3s; }
-.btn-login { background: transparent; color: #fff; border: 1px solid #fff; margin-left: 10px; }
-header.scrolled .btn-login { color: #007bff; border: 1px solid #007bff; }
-.btn-signup { background: #fff; color: #333; margin-left: 10px; }
-header.scrolled .btn-signup { background: #007bff; color: #fff; }
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    margin-left: 10px;
+}
+
+header.scrolled .btn-login {
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-signup {
+    background: #fff;
+    color: #333;
+    margin-left: 10px;
+}
+
+header.scrolled .btn-signup {
+    background: #007bff;
+    color: #fff;
+}
 
 /* =========================================
-   3. ヒーローセクション
+   3. パンくずリスト
+   ========================================= */
+.breadcrumb-nav {
+    padding: 12px 5%;
+    background: #f8f9fa;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 60px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+#breadcrumb-list span {
+    margin: 0 10px;
+    color: #ccc;
+    font-weight: normal;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #888;
+    transition: color 0.3s;
+}
+
+.breadcrumb-link:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+#top-page.active~#breadcrumb-container,
+body:has(#top-page.active) #breadcrumb-container {
+    display: none;
+}
+
+/* =========================================
+   4. ヒーローセクション
    ========================================= */
 .hero {
     position: relative;
@@ -75,8 +144,21 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     background-color: #000;
 }
 
-.hero-image-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-.hero-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
 
 .hero-overlay {
     position: relative;
@@ -86,21 +168,101 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     padding: 0 20px;
 }
 
-.hero-overlay h1 { font-size: 2.5rem; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-.btn-main { background: #007bff; color: white; font-size: 1.2rem; padding: 15px 40px; }
+.hero-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-main {
+    background: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.scroll-text {
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    40% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+
+    60% {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
 
 /* =========================================
-   4. サービス概要 (左寄せ・幅制限)
+   5. コンテンツ・カード（サービス概要など）
    ========================================= */
 .description-section {
     padding: 100px 20px;
-    background-color: #fff;
-    text-align: center; /* タイトルは中央 */
+    background-color: #f5f7f9;
 }
 
-.description-section .container {
-    max-width: 900px;
+.container {
+    max-width: 1100px;
     margin: 0 auto;
+}
+
+.category-card {
+    background-color: #ffffff;
+    padding: 60px 50px;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.container>.category-card:last-child {
+    margin-bottom: 0;
 }
 
 .sub-title {
@@ -110,32 +272,139 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     display: block;
     margin-bottom: 20px;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
-.main-title {
-    font-size: 2.2rem;
+.category-card .main-title {
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #333;
-    margin-bottom: 45px;
-    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 35px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
 }
 
-/* 文章の左寄せ・読みやすさ対策 */
+.category-card .main-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #007bff;
+}
+
 .description-text {
     max-width: 750px;
     margin: 0 auto;
-    text-align: left; /* ★ここを左寄せに */
+    text-align: left;
 }
 
 .description-text p {
     font-size: 1.1rem;
-    line-height: 2.2; /* 行間を広く */
+    line-height: 2.2;
     color: #444;
     margin-bottom: 25px;
-    text-align: justify; /* 日本語の端を揃える */
+    text-align: justify;
+}
+
+/* 箇条書きデザイン */
+.point-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+
+.point-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    color: #444;
+    text-align: left;
+}
+
+.point-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 /* =========================================
-   5. メリット紹介カード
+   6. Q&A セクション
+   ========================================= */
+.qa-container {
+    text-align: left;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.qa-item {
+    padding: 30px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.qa-item:last-child {
+    border-bottom: none;
+}
+
+.qa-question,
+.qa-answer {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.qa-question {
+    margin-bottom: 20px;
+}
+
+.qa-question p {
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: #333;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.qa-answer p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.qa-icon {
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+}
+
+.qa-question .qa-icon {
+    color: #007bff;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.qa-answer .qa-icon {
+    color: #f39800;
+    border: 1px solid rgba(243, 152, 0, 0.2);
+}
+
+/* =========================================
+   7. メリット紹介カード
    ========================================= */
 .features {
     display: flex;
@@ -151,41 +420,129 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     padding: 40px 30px;
     border-radius: 20px;
     width: 280px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
-/* ログイン・チャット */
-.form-container { max-width: 400px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; }
-.chat-container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; text-align: left;}
-.chat-inner-header { background: #007bff; color: white; padding: 15px; display: flex; justify-content: space-between; }
-.chat-window { height: 400px; background: #f0f0f0; padding: 20px; overflow-y: auto; }
-.message-text { background: white; padding: 10px; border-radius: 10px; display: inline-block; }
-
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
 
 /* =========================================
-   6. 新規登録フォーム用カスタムスタイル
+   8. フォーム全体・チャット共通
    ========================================= */
-
-/* フォーム全体のコンテナ（項目が多いので幅を広めに設定） */
-.signup-form-container {
-    max-width: 800px; /* デフォルトの400pxから拡張 */
-    margin: 80px auto; 
-    padding: 40px;
+.form-container {
+    max-width: 400px;
+    margin: 80px auto;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.chat-container {
+    max-width: 600px;
+    margin: 80px auto;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+}
+
+.chat-inner-header {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-window {
+    height: 400px;
+    background: #f0f0f0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message-text {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 15px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.chat-input-area input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* =========================================
+   9. 新規登録ページ
+   ========================================= */
+.signup-form-container {
+    max-width: 800px;
+}
+
+.signup-notice {
+    text-align: left;
+    background-color: #fff9f9;
+    padding: 20px;
+    border: 1px solid #ffeded;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.signup-notice p {
+    margin: 0 0 15px 0;
+    color: #555;
+}
+
+.warning-text {
+    color: #e74c3c !important;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0 !important;
 }
 
 .form-instruction {
     font-size: 0.85rem;
-    color: #e74c3c; /* 警告色（赤） */
+    color: #e74c3c;
     margin-bottom: 25px;
     font-weight: bold;
     text-align: left;
 }
 
-/* 入力項目のグループ */
+.form-category-card {
+    text-align: left;
+    padding: 40px 50px;
+    margin-bottom: 50px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.form-category-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+}
+
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -204,17 +561,15 @@ header.scrolled .btn-signup { background: #007bff; color: #fff; }
     margin-left: 4px;
 }
 
-/* 2項目を横に並べるレイアウト（PC用） */
 .form-row {
     display: flex;
     gap: 20px;
 }
 
 .form-row .form-group {
-    flex: 1; /* 左右均等な幅に */
+    flex: 1;
 }
 
-/* 入力・選択項目の共通デザイン */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -231,15 +586,14 @@ select {
     transition: all 0.3s ease;
 }
 
-/* フォーカス時の色変更 */
-input:focus, select:focus {
+input:focus,
+select:focus {
     outline: none;
     border-color: #007bff;
     background-color: #fff;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.15);
 }
 
-/* セレクトボックスの矢印カスタマイズ */
 select {
     cursor: pointer;
     appearance: none;
@@ -250,300 +604,843 @@ select {
     padding-right: 40px;
 }
 
-/* スマホ閲覧時：横並びを解除して縦1列にする */
+.btn-submit {
+    background: #007bff;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.switch-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   11. サービス概要ハイブリッド表示
+   ========================================= */
+.hybrid-service-wrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.hybrid-intro {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.hybrid-steps {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 30px;
+}
+
+.hybrid-card {
+    flex: 1;
+    min-width: 250px;
+    border-radius: 16px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.hybrid-card:hover {
+    transform: translateY(-5px);
+}
+
+/* AI用カードの配色（ごく薄い青/緑系） */
+.ai-card {
+    background: #f4fbfd;
+    border: 1px solid #e2f2f5;
+}
+
+.ai-icon {
+    color: #11819b;
+    background: rgba(17, 129, 155, 0.1);
+}
+
+/* 有人用カードの配色（ごく薄い黄/オレンジ系） */
+.human-card {
+    background: #fdfaf2;
+    border: 1px solid #f9edd4;
+}
+
+.human-icon {
+    color: #f39800;
+    background: rgba(243, 152, 0, 0.1);
+}
+
+.hybrid-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hybrid-card-title {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.hybrid-card-desc {
+    font-size: 1rem !important;
+    color: #666 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 25px !important;
+}
+
+.hybrid-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hybrid-tags li {
+    font-size: 0.8rem;
+    background: #f1f3f5;
+    color: #555;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.hybrid-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    width: 40px;
+}
+
+.hybrid-arrow svg {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 800px) {
+    .hybrid-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hybrid-arrow {
+        transform: rotate(90deg);
+        margin: 15px 0;
+    }
+
+    .hybrid-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 @media (max-width: 600px) {
     .form-row {
         flex-direction: column;
         gap: 0;
     }
-    
+
     .signup-form-container {
         padding: 20px;
         margin: 60px 15px;
     }
-    
-    .main-title {
-        font-size: 1.6rem;
-    }
-}
 
-/* =========================================
-   7. ページごとのヘッダー表示制御
-   ========================================= */
-
-/* ログイン・新規登録・チャット画面では、スクロール前でもヘッダーを白背景にする */
-body:has(#login-page.active) header,
-body:has(#signup-page.active) header,
-body:has(#chat-page.active) header {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 10px 5%; /* scrolledと同じパディング */
-}
-
-/* それらのページでの文字色を黒に強制 */
-body:has(#login-page.active) header .logo,
-body:has(#signup-page.active) header .logo,
-body:has(#chat-page.active) header .logo,
-body:has(#login-page.active) header .nav-item,
-body:has(#signup-page.active) header .nav-item,
-body:has(#chat-page.active) header .nav-item {
-    color: #333;
-}
-
-/* ログイン・新規登録ボタンの色調整 */
-body:has(#login-page.active) header .btn-login,
-body:has(#signup-page.active) header .btn-login {
-    color: #007bff;
-    border: 1px solid #007bff;
-}
-body:has(#login-page.active) header .btn-signup,
-body:has(#signup-page.active) header .btn-signup {
-    background: #007bff;
-    color: #fff;
-}
-
-
-/* =========================================
-   8. パンくずリスト
-   ========================================= */
-.breadcrumb-nav {
-    padding: 12px 5%;
-    background: #f8f9fa; /* 非常に薄いグレー */
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 60px; /* 固定ヘッダー分の余白 */
-    border-bottom: 1px solid #eee;
-    text-align: left;
-}
-
-#breadcrumb-list span {
-    margin: 0 10px;
-    color: #ccc;
-    font-weight: normal;
-}
-
-/* --- パンくずリスト内のリンク用スタイル --- */
-.breadcrumb-link {
-    text-decoration: none; /* 下線を消す */
-    color: #888;          /* 周りの文字と同じ色にする */
-    transition: color 0.3s;
-}
-
-.breadcrumb-link:hover {
-    color: #007bff;       /* マウスを置いたときだけブランドカラーにする */
-    text-decoration: underline; /* マウスを置いたときだけ下線を出す */
-}
-
-/* トップページ（ヒーロー画像があるページ）ではパンくずを隠す */
-#top-page.active ~ #breadcrumb-container,
-body:has(#top-page.active) #breadcrumb-container {
-    display: none;
-}
-
-/* フォームの上の余白を少し調整（パンくずが出た分） */
-.form-container, .signup-form-container {
-    margin-top: 40px !important;
-}
-
-/* =========================================
-   9. 新規登録ページ：メッセージエリア
-   ========================================= */
-
-/* メッセージ全体の枠組み */
-.signup-notice {
-    text-align: left;
-    background-color: #fff9f9; /* 非常に薄い赤背景 */
-    padding: 20px;
-    border: 1px solid #ffeded;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-.signup-notice p {
-    margin: 0 0 15px 0;
-    color: #555;
-}
-
-/* 「ご注意！」以降の赤文字設定 */
-.warning-text {
-    color: #e74c3c !important; /* 強調の赤 */
-    font-weight: bold;
-    display: block; /* 改行させて目立たせる */
-    margin-bottom: 0 !important;
-}
-
-/* =========================================
-   10. コンテンツ・カード（サービス概要・支援ポイント用）
-   ========================================= */
-
-/* セクション全体の背景を薄いグレーに設定 */
-.description-section, .support-section {
-    padding: 100px 20px;
-    background-color: #f5f7f9; /* 参考画像に近いグレー */
-}
-
-/* 白いカード（情報の塊）のデザイン */
-.category-card {
-    background-color: #ffffff;
-    padding: 60px 40px;
-    border-radius: 16px;
-    max-width: 950px;
-    margin: 0 auto 60px; /* カード同士の縦の間隔 */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 柔らかい影 */
-    text-align: center;
-}
-
-/* カード内のメインタイトル（下に青い線） */
-.category-card .main-title {
-    font-size: 1.8rem;
-    margin-bottom: 35px;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 12px;
-}
-
-.category-card .main-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: #007bff; /* 青いアクセント線 */
-}
-
-/* 箇条書き（支援ポイント）の装飾 */
-.support-text ul {
-    list-style: none;
-    padding: 0;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.support-text ul li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 18px;
-    text-align: left;
-    line-height: 1.6;
-    font-size: 1.05rem;
-    color: #444;
-}
-
-/* リストの先頭にチェックマークを付与 */
-.support-text ul li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #007bff;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-/* =========================================
-   11. フォーム内のカテゴリー分割（新規登録用）
-   ========================================= */
-
-/* 登録フォーム内の各グループも白枠カードにする */
-.signup-form-container .category-card {
-    text-align: left;
-    padding: 40px;
-    margin-bottom: 40px;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); /* フォーム内は影を抑える */
-}
-
-.signup-form-container h3 {
-    font-size: 1.1rem;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #007bff;
-    display: inline-block;
-}
-
-/* =========================================
-   12. Q&A（よくある質問）スタイル
-   ========================================= */
-
-.qa-container {
-    text-align: left;
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.qa-item {
-    padding: 30px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.qa-item:last-child {
-    border-bottom: none;
-}
-
-/* 質問(Q)と回答(A)の共通レイアウト */
-.qa-question, .qa-answer {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.qa-question {
-    margin-bottom: 20px;
-}
-
-/* 質問文のテキスト */
-.qa-question p {
-    font-weight: bold;
-    font-size: 1.15rem;
-    color: #333;
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* 回答文のテキスト */
-.qa-answer p {
-    font-size: 1.05rem;
-    color: #555;
-    line-height: 1.8;
-    margin: 0;
-}
-
-/* QとAのアイコン（参考画像風の装飾） */
-.qa-icon {
-    font-weight: bold;
-    font-size: 1.1rem;
-    min-width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    background-color: #f8f9fa; /* 薄いグレーの背景 */
-}
-
-/* 質問アイコンの色 */
-.qa-question .qa-icon {
-    color: #007bff;
-    border: 1px solid rgba(0, 123, 255, 0.2);
-}
-
-/* 回答アイコンの色 */
-.qa-answer .qa-icon {
-    color: #f39800;
-    border: 1px solid rgba(243, 152, 0, 0.2);
-}
-/* スマホ対応 */
-@media (max-width: 600px) {
     .category-card {
         padding: 30px 20px;
     }
-    
+
     .category-card .main-title {
         font-size: 1.5rem;
+    }
+
+    .qa-question,
+    .qa-answer {
+        gap: 12px;
+    }
+}
+
+/* =========================================
+   12. ご利用の流れと料金
+   ========================================= */
+.flow-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+    margin-top: 15px;
+}
+
+.flow-tab {
+    padding: 12px 35px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #11819b;
+    background: #fff;
+    border: 2px solid #11819b;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.flow-tab.active {
+    background: #11819b;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(17, 129, 155, 0.2);
+}
+
+.flow-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.flow-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flow-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.flow-step {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.flow-step h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.15rem;
+}
+
+.flow-step p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.step-number {
+    display: inline-block;
+    background: #f1f3f5;
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+#flow-hr .step-number {
+    color: #11819b;
+    background: #e5f7f9;
+}
+
+#flow-employee .step-number {
+    color: #f39800;
+    background: #fdf5d3;
+}
+
+.flow-step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+}
+
+.flow-step-arrow svg {
+    width: 30px;
+    height: 30px;
+    transform: rotate(90deg);
+}
+
+/* =========================================
+   13. 料金プラン
+   ========================================= */
+.pricing-intro {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.pricing-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.pricing-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-plan {
+    border: 2px solid #11819b;
+}
+
+.secondary-plan {
+    border: 2px solid #f39800;
+}
+
+.plan-header {
+    padding: 30px 25px 20px;
+    text-align: center;
+}
+
+.primary-plan .plan-header {
+    background: #f4fbfd;
+    border-bottom: 1px solid #e2f2f5;
+}
+
+.secondary-plan .plan-header {
+    background: #fdfaf2;
+    border-bottom: 1px solid #f9edd4;
+}
+
+.plan-target {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.primary-plan .plan-target {
+    color: #11819b;
+    background: rgba(17, 129, 155, 0.1);
+}
+
+.secondary-plan .plan-target {
+    color: #d98800;
+    background: rgba(243, 152, 0, 0.1);
+}
+
+.plan-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.plan-price {
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.price-currency {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 5px;
+    line-height: 1;
+}
+
+.primary-plan .price-amount {
+    color: #11819b;
+}
+
+.secondary-plan .price-amount {
+    color: #f39800;
+}
+
+.price-unit {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-tax {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 10px;
+}
+
+.plan-features {
+    padding: 30px 25px;
+    margin: 0;
+    list-style: none;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.plan-features li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #11819b;
+    background: rgba(17, 129, 155, 0.1);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.feature-note {
+    font-size: 0.85rem;
+    color: #777;
+    display: block;
+    margin-top: 5px;
+}
+
+.plan-tiers {
+    padding: 25px 35px;
+    flex-grow: 1;
+}
+
+.tier-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.tier-row:last-child {
+    border-bottom: none;
+}
+
+.tier-size {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.tier-price {
+    font-size: 1.05rem;
+    color: #555;
+    text-align: right;
+}
+
+.tier-price strong {
+    font-size: 1.6rem;
+    color: #f39800;
+    margin: 0 3px;
+}
+
+.tier-price span {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+.plan-note {
+    font-size: 0.85rem;
+    color: #777;
+    text-align: center;
+    padding: 0 20px 20px;
+    margin: 0;
+}
+
+.tier-recommended {
+    background: #fff9e6;
+    margin: 5px -15px;
+    padding: 15px 15px;
+    border-radius: 8px;
+    border: 1px solid #f9edd4;
+    box-shadow: 0 4px 12px rgba(243, 152, 0, 0.08);
+}
+
+.recommended-badge {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* =========================================
+   14. 導入メリット
+   ========================================= */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.benefit-card {
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.benefit-icon {
+    width: 48px;
+    height: 48px;
+    background: #f4fbfd;
+    color: #11819b;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.benefit-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.benefit-card h3 {
+    font-size: 1.15rem;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.benefit-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* =========================================
+   15. 安心してご利用いただける理由 (Reasons)
+   ========================================= */
+.reasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.reason-item {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    border-left: 5px solid #11819b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.reason-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: #f4fbfd;
+    color: #11819b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+}
+
+.reason-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.reason-content {
+    text-align: left;
+}
+
+.reason-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.reason-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .reason-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px 20px;
+    }
+
+    .reason-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .pricing-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .flow-steps {
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .flow-step {
+        flex: 1;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .flow-step-arrow svg {
+        transform: rotate(0deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .flow-tabs {
+        flex-direction: column;
+    }
+
+    .qa-icon {
+        min-width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ====================================================
+   15. CTA / お問い合わせ (Advertisement)
+   ==================================================== */
+#advertisement {
+    background: linear-gradient(135deg, #11819b 0%, #0c5a6d 100%);
+    color: #fff;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    box-shadow: 0 15px 40px rgba(17, 129, 155, 0.2);
+}
+
+#advertisement::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.cta-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 50px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.cta-subtitle {
+    color: #f39800;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#advertisement .cta-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    letter-spacing: 0.05em;
+}
+
+.cta-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.cta-btn-primary {
+    background: #f39800;
+    color: #fff;
+    font-weight: bold;
+    padding: 18px 40px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(243, 152, 0, 0.3);
+}
+
+.cta-btn-primary:hover {
+    background: #e68a00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(243, 152, 0, 0.4);
+}
+
+.cta-btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+    padding: 18px 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.cta-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.cta-company-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+.cta-company-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 12px;
+}
+
+.cta-company-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.cta-company-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 600px) {
+    .cta-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cta-inner {
+        padding: 50px 30px;
+    }
+
+    #advertisement .cta-title {
+        font-size: 1.6rem;
+    }
+    
+    .cta-company-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
 }
