@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iii HALZ - 生成AIと創る人事労務</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header id="main-header">
         <div class="logo">iii HALZ</div>
         <nav id="guest-nav">
-            <a href="#" class="nav-item" onclick="showSection('top-page')">TOP</a>
+            <a href="#" class="nav-item" onclick="showSection('top-page'); return false;">TOP</a>
             <a href="#" class="nav-item">お知らせ</a>
             <a href="#" class="nav-item">サービス</a>
             <a href="#" class="nav-item">会社概要</a>
@@ -26,116 +28,377 @@
             <span id="breadcrumb-list">TOP</span>
         </div>
     </div>
-    
+
     <section id="top-page" class="active">
         <div class="hero">
             <div class="hero-image-container">
-                <img src="image/top-image.png" alt="AI Chat Image" class="hero-img">
+                <img src="image/top-image-new.jpg" alt="HALZ AI Business Support" class="hero-img">
             </div>
             <div class="hero-overlay">
                 <h1>生成AIと創る、人事労務の新しいカタチ。</h1>
                 <p>法改正も即対応。問い合わせ対応も自動化。省人化しながら精度アップ。</p>
                 <button class="btn-main" onclick="showSection('login-page')">今すぐ始める</button>
             </div>
+
+            <div class="scroll-indicator"
+                onclick="document.querySelector('.description-section').scrollIntoView({behavior: 'smooth'})">
+                <span class="scroll-text">Scroll Down</span>
+                <div class="scroll-arrow"></div>
+            </div>
         </div>
-        
+
         <div class="description-section">
             <div class="container">
-                
+
                 <div class="category-card">
                     <span class="sub-title">Positioning</span>
                     <h2 class="main-title">サービス概要</h2>
-                    <div class="description-text">
-                        <p>
-                          ChatGPTを活用した、話題の生成AIツールを人事労務領域に最適化。
-                          就業規則の要点抽出、社内FAQボットの構築、業務日報の要約・集計、通知文章の自動作成など、「実務に使える」AI活用例を設計から実装まで伴走します。
-                        </p>
-                        <p>
-                          また、人事労務相談専用のAIチャットボット「AI労務相談ボットHALZさん」をリリースしました。
-                          このサービスは、企業の人事担当者や経営者が日々直面する育休手続きや社会保険の申請対応などの労務課題を簡単に解決できる迅速なサポートを提供します。AIチャットボットは、チャットプラス株式会社が提供する「ChatPlus」と連携し、24時間365日自動で応答。
-                        </p>
-                        <p>
-                          社会保険労務士法人の監修によるQ&Aデータベースを活用し、高精度で信頼性の高い回答を提供します。
-                          ベータ版は無償で公開され、ユーザーのフィードバックを基に、社会保険労務士業務のAIサービス化をさらに促進することを目的としています。
-                        </p>
-                    </div>
-                </div>
+                    <div class="hybrid-service-wrapper">
+                        <div class="hybrid-intro">
+                            <p>HALZさんは、AIの「スピード」と専門家の「安心」を組み合わせたハイブリッド体制で、あらゆる人事・労務の課題を解決へと導きます。</p>
+                        </div>
 
-                <div class="category-card">
-                    <span class="sub-title">Point</span>
-                    <h2 class="main-title">HALZの支援ポイント</h2>
-                    <div class="description-text">
-                        <ul class="point-list">
-                            <li>ChatGPT／ChatPlus／GAS／Difyなど複数のAIツールを組み合わせて設計</li>
-                            <li>ChatPlus導入支援：労務チャットボットのFAQ整備／ルール設計／学習チューニング</li>
-                            <li>業務フロー別テンプレート（通知・規程・日報・アンケート集計など）を提供</li>
-                            <li>内製化・運用トレーニングまで支援し、現場で“回る”体制を構築</li>
-                        </ul> 
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <span class="sub-title">target</span>
-                    <h2 class="main-title">対象となる企業・ニーズ</h2>
-                    <div class="description-text">
-                        <ul class="point-list">
-                            <li>法改正対応や制度変更時に手間や属人化が生じている企業</li>
-                            <li>人事総務部門への問い合わせが集中し、対応工数が膨らんでいる</li>
-                            <li>DX推進を検討しているが、人事業務への具体的な適用方法がわからない</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <span class="sub-title">question</span>
-                    <h2 class="main-title">よくある質問と回答/実績・実例</h2>
-
-                    <div class="qa-container">
-                        <div class="qa-item">
-                            <div class="qa-question">
-                                <span class="qa-icon">Q1.</span>
-                                <p>ChatGPTなど生成AIは、どの業務で使えるんですか？</p>
+                        <div class="hybrid-steps">
+                            <div class="hybrid-card ai-card">
+                                <div class="hybrid-card-icon ai-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="hybrid-card-title">STEP 1: まずはAIが即座に解決</h4>
+                                <p class="hybrid-card-desc">
+                                    独自Q&Aデータベースを活用し、24時間365日いつでもスマホからもでも即回答。一般的な労務や給与の疑問をその場で解消します。</p>
+                                <ul class="hybrid-tags">
+                                    <li>24時間365日対応</li>
+                                    <li>幅広い業務に対応</li>
+                                    <li>高い機密性</li>
+                                </ul>
                             </div>
-                            <div class="qa-answer">
-                                <span class="qa-icon">A.</span>
-                                <p>例えば、規程変更案内の下書き生成、FAQ対応、面談記録の要約、日報や申請書の集計、通知文のひな形作成など、「毎回ゼロから作っていた業務」の自動化に適しています。</p>
+
+                            <div class="hybrid-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+
+                            <div class="hybrid-card human-card">
+                                <div class="hybrid-card-icon human-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="hybrid-card-title">STEP 2: 複雑な相談は専門家へ</h4>
+                                <p class="hybrid-card-desc">AIで解決しきれない個別・複雑な事情には、社労士有資格者などの専門スタッフがチャットで丁寧に対応を引き継ぎます。</p>
+                                <ul class="hybrid-tags">
+                                    <li>専門家がチャット対応</li>
+                                    <li>複雑な課題も安心</li>
+                                    <li>経営者・従業員両対応</li>
+                                </ul>
                             </div>
                         </div>
-                        
-                        <div class="qa-item">
-                            <div class="qa-question">
-                                <span class="qa-icon">Q2.</span>
-                                <p>ChatPlus導入では、どんな支援をしてもらえるのですか？</p>
+                    </div>
+                </div>
+
+                <div class="category-card" id="usage-flow">
+                    <span class="sub-title">Flow & Price</span>
+                    <h2 class="main-title">ご利用の流れと料金</h2>
+
+                    <div class="flow-tabs">
+                        <button class="flow-tab active" onclick="switchFlow(this, 'hr')">人事担当者向け</button>
+                        <button class="flow-tab" onclick="switchFlow(this, 'employee')">従業員向け</button>
+                    </div>
+
+                    <!-- 人事担当者向けフロー -->
+                    <div id="flow-hr" class="flow-content active">
+                        <div class="flow-steps">
+                            <div class="flow-step">
+                                <div class="step-number">STEP 1</div>
+                                <h4>質問を入力</h4>
+                                <p>チャットで労務に関する質問を入力します。</p>
                             </div>
-                            <div class="qa-answer">
-                                <span class="qa-icon">A.</span>
-                                <p>ChatPlusの設計・FAQ設計・分類タグの設計・回答トーン調整・精度検証・フィードバックループまで、実運用に耐える仕組みを構築します（社内でも導入実績あり）。</p>
+                            <div class="flow-step-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-number">STEP 2</div>
+                                <h4>AIが即座に回答</h4>
+                                <p>HALZさんが独自DBから最適な回答を提供します。</p>
+                            </div>
+                            <div class="flow-step-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-number">STEP 3</div>
+                                <h4>有人チャットに切替</h4>
+                                <p>必要に応じて労務士資格者が対応を引き継ぎます。</p>
                             </div>
                         </div>
-                        
                     </div>
+
+                    <!-- 従業員向けフロー -->
+                    <div id="flow-employee" class="flow-content">
+                        <div class="flow-steps">
+                            <div class="flow-step">
+                                <div class="step-number">STEP 1</div>
+                                <h4>質問を入力</h4>
+                                <p>従業員がチャットで人事労務の質問を入力します。</p>
+                            </div>
+                            <div class="flow-step-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-number">STEP 2</div>
+                                <h4>AIが即座に回答</h4>
+                                <p>HALZさんが即座に分かりやすく回答します。</p>
+                            </div>
+                            <div class="flow-step-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-number">STEP 3</div>
+                                <h4>有人チャットに切替</h4>
+                                <p>HALZスタッフがチャットで丁寧に対応を引き継ぎます。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" id="pricing">
+                    <span class="sub-title">Pricing</span>
+                    <h2 class="main-title">料金プラン</h2>
+
+                    <div class="pricing-intro">
+                        <p>シンプルな月額固定料金。<br>従業員規模に応じたプランをお選びいただけます。</p>
+                    </div>
+
+                    <div class="pricing-wrapper">
+                        <!-- 人事担当者向け -->
+                        <div class="pricing-card primary-plan">
+                            <div class="plan-header">
+                                <span class="plan-target">人事担当者向け</span>
+                                <h3>基本プラン</h3>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-currency">月額</span>
+                                <span class="price-amount">10,000</span>
+                                <span class="price-unit">円</span>
+                                <span class="price-tax">（税別・固定）</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li>AIによる即時対応</li>
+                                <li>有人チャットサポート<br><span class="feature-note">（社労士有資格者もしくは同等スタッフが対応）</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- 従業員向け -->
+                        <div class="pricing-card secondary-plan">
+                            <div class="plan-header">
+                                <span class="plan-target">従業員向け</span>
+                                <h3>規模別プラン</h3>
+                            </div>
+                            <div class="plan-tiers">
+                                <div class="tier-row">
+                                    <div class="tier-size">30名まで</div>
+                                    <div class="tier-price">月額 <strong>20,000</strong>円<span>（税別・固定）</span></div>
+                                </div>
+                                <div class="tier-row tier-recommended">
+                                    <div class="tier-size">50名まで <span class="recommended-badge">おすすめ</span></div>
+                                    <div class="tier-price">月額 <strong>30,000</strong>円<span>（税別・固定）</span></div>
+                                </div>
+                                <div class="tier-row">
+                                    <div class="tier-size">100名まで</div>
+                                    <div class="tier-price">月額 <strong>50,000</strong>円<span>（税別・固定）</span></div>
+                                </div>
+                            </div>
+                            <p class="plan-note">※100名以上の企業様は別途ご相談ください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 導入メリット -->
+                <div class="category-card" id="benefits">
+                    <span class="sub-title">Benefits</span>
+                    <h2 class="main-title">導入メリット</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <h3>業務時間の大幅改善</h3>
+                            <p>人事担当者の問い合わせ対応時間を削減。AIが一次対応を行うことで、担当者はコア業務に集中できます。</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </div>
+                            <h3>回答品質の向上</h3>
+                            <p>独自Q&Aデータベースと社労士有資格者のダブルチェック体制により、正確で信頼性の高い回答を提供します。</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="1 4 1 10 7 10"></polyline>
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                                </svg>
+                            </div>
+                            <h3>24時間365日対応</h3>
+                            <p>AIチャットは時間を問わず即座に対応。従業員はいつでも気軽に相談でき、満足度が向上します。</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <h3>コスト最適化</h3>
+                            <p>月額固定料金で予算管理が容易。都度の相談費用と比較して大幅なコスト削減を実現します。</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3>従業員エンゲージメント向上</h3>
+                            <p>従業員が直接相談できる窓口を設けることで、人事への信頼度と働きやすさが向上します。</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3>専門家の安心サポート</h3>
+                            <p>AIで解決できない複雑な問題も、HALZの専門スタッフが有人チャットで丁寧に対応します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 安心してご利用いただける理由 -->
+                <div class="category-card" id="reasons">
+                    <span class="sub-title">Reasons</span>
+                    <h2 class="main-title">安心してご利用いただける理由</h2>
+
+                    <div class="reasons-list">
+                        <div class="reason-item">
+                            <div class="reason-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <div class="reason-content">
+                                <h3>情報セキュリティ</h3>
+                                <p>機密性は確保されており、生成AI利用による情報の流出はありません。安心してご相談いただけます。</p>
+                            </div>
+                        </div>
+
+                        <div class="reason-item">
+                            <div class="reason-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="8.5" cy="7" r="4"></circle>
+                                    <polyline points="17 11 19 13 23 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="reason-content">
+                                <h3>社労士法人が運営</h3>
+                                <p>社労士法人HALZが運営するサービスのため、法的な裏付けのある回答を提供。専門家の知見に基づいた信頼性の高い対応です。</p>
+                            </div>
+                        </div>
+
+                        <div class="reason-item">
+                            <div class="reason-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="reason-content">
+                                <h3>豊富な実績</h3>
+                                <p>多数の企業様への労務コンサルティング実績に基づき、独自のQ&Aデータベースを構築。実務に即した回答が可能です。</p>
+                            </div>
+                        </div>
+
+                        <div class="reason-item">
+                            <div class="reason-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="reason-content">
+                                <h3>柔軟な対応体制</h3>
+                                <p>AIと有人のハイブリッド対応により、簡易な質問から複雑な相談まで幅広くカバーします。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- お問い合わせCTA -->
+        <div id="advertisement" class="cta-section">
+            <div class="cta-inner">
+                <span class="sub-title cta-subtitle">Contact Us</span>
+                <h2 class="cta-title">まずはお気軽にお問い合わせください。</h2>
+                <p class="cta-desc">AIと専門家の融合による新しい労務相談のかたちを、ぜひ貴社でもご体験ください。<br>導入のご相談やデモのご依頼も承っております。</p>
+                
+                <div class="cta-actions">
+                    <button class="btn-main cta-btn-primary" onclick="showSection('signup-page')">無料で試してみる</button>
+                    <button class="btn-main cta-btn-secondary" onclick="alert('お問い合わせフォームへ遷移します')">資料をダウンロード</button>
                 </div>
                 
+                <div class="cta-company-info">
+                    <div class="cta-company-logo">iii HALZ</div>
+                    <div class="cta-company-details">
+                        <h4>運営：社労士法人HALZ</h4>
+                        <p>〒160-0023 東京都新宿区西新宿8-3-30 カーメルⅡ 1F</p>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>24時間即時回答</h3>
-                <p>深夜でも休日でも、あなたの質問にAIがすぐにお答えします。待たされるストレスはもうありません。</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>専門知識の提供</h3>
-                <p>膨大なデータから必要な情報を瞬時に検索。専属コンシェルジュのような体験を提供します。</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📈</div>
-                <h3>高度な分析</h3>
-                <p>会員限定で、過去の相談履歴に基づいた、よりパーソナライズされたアドバイスが可能です。</p>
-            </div>
-        </div>
+
+
     </section>
 
     <section id="login-page">
@@ -162,12 +425,12 @@
                     【ご注意！】Gmailなどをご利用の方は、メールが自動的に「迷惑メール」に振り分けられることがあります。メールが届かない場合は、迷惑メールフォルダをご確認ください。
                 </p>
             </div>
-            
+
             <p class="form-instruction">＊は必須項目です</p>
-            
+
             <form id="signup-form">
-                <div class="category-card" style="text-align: left; padding: 30px; margin-bottom: 20px;">
-                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid #007bff; display: inline-block;">基本情報</h3>
+                <div class="category-card form-category-card">
+                    <h3 class="form-category-title">基本情報</h3>
                     <div class="form-group">
                         <label>ユーザー名 <span class="required">＊</span></label>
                         <input type="text" placeholder="例：halz_user" required>
@@ -190,8 +453,8 @@
                     </div>
                 </div>
 
-                <div class="category-card" style="text-align: left; padding: 30px;">
-                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid #007bff; display: inline-block;">勤務先情報</h3>
+                <div class="category-card form-category-card">
+                    <h3 class="form-category-title">勤務先情報</h3>
                     <div class="form-group">
                         <label>会社名</label>
                         <input type="text" placeholder="株式会社〇〇">
@@ -288,7 +551,8 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn-submit" style="width: 100%; margin-top: 20px;" onclick="showSection('login-page')">内容を確認して登録する</button>
+                <button type="button" class="btn-submit" style="width: 100%; margin-top: 20px;"
+                    onclick="showSection('login-page')">内容を確認して登録する</button>
             </form>
             <p class="switch-link">すでにアカウントをお持ちの方は<a href="#" onclick="showSection('login-page')">こちら</a></p>
         </div>
@@ -315,4 +579,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
