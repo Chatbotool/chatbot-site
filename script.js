@@ -101,3 +101,19 @@ function switchFlow(element, type) {
     // 対象のフローコンテンツをアクティブ化
     document.getElementById('flow-' + type).classList.add('active');
 }
+/* =========================================
+   メリットタブ制御とハイライト設定
+   ========================================= */
+.benefits-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.benefits-content.active {
+    display: block;
+}
+
+.text-red {
+    color: #cc0000;
+    font-weight: bold;
+}
