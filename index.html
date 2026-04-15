@@ -237,72 +237,103 @@
                 <div class="category-card" id="benefits">
                     <span class="sub-title">Benefits</span>
                     <h2 class="main-title">導入メリット</h2>
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+
+                    <div class="flow-tabs">
+                        <button class="benefit-tab flow-tab active" onclick="switchBenefits(this, 'hr')">人事担当者</button>
+                        <button class="benefit-tab flow-tab" onclick="switchBenefits(this, 'employee')">従業員</button>
+                    </div>
+
+                    <div id="benefits-hr" class="benefits-content active">
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </div>
+                                <h3>業務効率の大幅改善</h3>
+                                <p>人事担当者が問い合わせ対応に費やす時間を削減。HALが一次対応を行うことで、担当者はコア業務に集中できます。<span class="text-red">個社ごとの対応も可能です。</span></p>
                             </div>
-                            <h3>業務時間の大幅改善</h3>
-                            <p>人事担当者の問い合わせ対応時間を削減。AIが一次対応を行うことで、担当者はコア業務に集中できます。</p>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                </div>
+                                <h3>窓口設置の負担軽減</h3>
+                                <p>コンプライアンス通報窓口、パートタイム社員問い合わせ窓口として設置可能。窓口設置の負担を軽減します。</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                </div>
+                                <h3>24時間365日対応</h3>
+                                <p>AIチャットは時間を問わず即座に対応。従業員はいつでも気軽に相談でき、満足度が向上します。なお、<span class="text-red">従業員の問い合わせ内容はメールで会社に共有することも可能です。</span></p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                </div>
+                                <h3>コスト最適化</h3>
+                                <p>月額固定料金で予算管理が容易。都度の相談費用と比較して大幅なコスト削減を実現します。</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                                </div>
+                                <h3>労務相談200社以上のQ&A</h3>
+                                <p>毎日更新される労務相談Q&Aを元に他社事例や類似ケースを気軽に確認することができます。</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <h3>専門家の安心サポート</h3>
+                                <p>AIで解決できない複雑な問題も、HALZの専門スタッフが有人チャットで丁寧に対応します。</p>
+                            </div>
                         </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="8" r="7"></circle>
-                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                                </svg>
+                    </div>
+
+                    <div id="benefits-employee" class="benefits-content">
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </div>
+                                <h3>回答待ち時間の大幅改善</h3>
+                                <p>チャットによるスピーディーな回答を実現。人事担当者からの回答待ち時間を大幅に短縮します。</p>
                             </div>
-                            <h3>回答品質の向上</h3>
-                            <p>独自Q&Aデータベースと社労士有資格者のダブルチェック体制により、正確で信頼性の高い回答を提供します。</p>
-                        </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="1 4 1 10 7 10"></polyline>
-                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-                                </svg>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                </div>
+                                <h3>窓口統一によるわかりやすさ</h3>
+                                <p>コンプライアンス通報窓口、パートタイム社員問い合わせ窓口として設置。問い合わせを一本化することで負担を軽減します。</p>
                             </div>
-                            <h3>24時間365日対応</h3>
-                            <p>AIチャットは時間を問わず即座に対応。従業員はいつでも気軽に相談でき、満足度が向上します。</p>
-                        </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                </div>
+                                <h3>24時間365日対応</h3>
+                                <p>AIチャットは時間を問わず即座に対応。機会を逃さずいつでも気軽に相談できます。有人チャットが時間外でも問い合わせフォームに入力することで、翌営業日に速やかに回答します。</p>
                             </div>
-                            <h3>コスト最適化</h3>
-                            <p>月額固定料金で予算管理が容易。都度の相談費用と比較して大幅なコスト削減を実現します。</p>
-                        </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                                    </path>
-                                </svg>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                                </div>
+                                <h3>スマホからのアクセスも可能</h3>
+                                <p>場所を問わず相談が可能です。</p>
                             </div>
-                            <h3>従業員エンゲージメント向上</h3>
-                            <p>従業員が直接相談できる窓口を設けることで、人事への信頼度と働きやすさが向上します。</p>
-                        </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <h3>従業員エンゲージメント向上</h3>
+                                <p>従業員が直接相談できる窓口を設けることで、人事への信頼度と働きやすさが向上します。</p>
                             </div>
-                            <h3>専門家の安心サポート</h3>
-                            <p>AIで解決できない複雑な問題も、HALZの専門スタッフが有人チャットで丁寧に対応します。</p>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <h3>専門家の安心サポート</h3>
+                                <p>AIで解決できない複雑な問題も、HALZの専門スタッフが有人チャットで丁寧に対応します。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
